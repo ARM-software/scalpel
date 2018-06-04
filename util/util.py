@@ -94,7 +94,7 @@ class SIMD_Prune_Op():
                     shape = tmp_pruned.shape
                     tmp_pruned = tmp_pruned.pow(2.0).mean(2, keepdim=True).pow(0.5)\
                             .expand(tmp_pruned.shape).lt(threshold)
-                    tmp_pruned[:, -1] = False
+                    tmp_pruned[:, -1] = 0
                     tmp_pruned = tmp_pruned.view(tmp_pruned.shape[0], -1)
                     tmp_pruned = tmp_pruned[:, 0:m.weight.data.shape[1]]
                     model.weights_pruned.append(tmp_pruned)
@@ -108,7 +108,7 @@ class SIMD_Prune_Op():
                     shape = tmp_pruned.shape
                     tmp_pruned = tmp_pruned.pow(2.0).mean(2, keepdim=True).pow(0.5)\
                             .expand(tmp_pruned.shape).lt(threshold)
-                    tmp_pruned[:, -1] = False
+                    tmp_pruned[:, -1] = 0
                     tmp_pruned = tmp_pruned.view(original_size[0], -1)
                     tmp_pruned = tmp_pruned[:, 0:m.weight.data[0].nelement()]
                     tmp_pruned = tmp_pruned.view(original_size)
