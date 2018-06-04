@@ -64,7 +64,7 @@ def test(evaluate=False):
         pred = output.data.max(1, keepdim=True)[1]
         correct += pred.eq(target.data.view_as(pred)).cpu().sum()
     
-    acc = 100. * correct / len(test_loader.dataset)
+    acc = 100. * float(correct) / len(test_loader.dataset)
     if ((args.prune == 'node') and (not args.retrain)) or (acc > best_acc):
         best_acc = acc
         if not evaluate:
@@ -73,7 +73,7 @@ def test(evaluate=False):
     test_loss /= len(test_loader.dataset)
     print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.2f}%)'.format(
         test_loss * args.batch_size, correct, len(test_loader.dataset),
-        100. * correct / len(test_loader.dataset)))
+        100. * float(correct) / len(test_loader.dataset)))
     print('Best Accuracy: {:.2f}%\n'.format(best_acc))
     return
 

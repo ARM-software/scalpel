@@ -25,7 +25,7 @@ Here is the results for node pruning:
   <tr>
     <td>LeNet-5</td>
     <td>MNIST</td>
-    <td>1->9/20(conv)->18/50(conv)->165/500(ip)->10(ip)</td>
+    <td>1->9/20(conv)->18/50(conv)->65/500(ip)->10(ip)</td>
     <td>99.34%</td>
     <td>99.34%</td>
   </tr>
